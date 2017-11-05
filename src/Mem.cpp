@@ -1,10 +1,10 @@
-/* XMRig
+/* ZRMig
  * Copyright 2010      Jeff Garzik <jgarzik@pobox.com>
  * Copyright 2012-2014 pooler      <pooler@litecoinpool.org>
  * Copyright 2014      Lucas Jones <https://github.com/lucasjones>
  * Copyright 2014-2016 Wolf9466    <https://github.com/OhGodAPet>
  * Copyright 2016      Jay D Dee   <jayddee246@gmail.com>
- * Copyright 2016-2017 XMRig       <support@xmrig.com>
+ * Copyright 2016-2017 ZRMig       <support@zrmig.com>
  *
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -40,7 +40,7 @@ uint8_t *Mem::m_memory = nullptr;
 
 cryptonight_ctx *Mem::create(int threadId)
 {
-#   ifndef XMRIG_NO_AEON
+#   ifndef ZRMIG_NO_AEON
     if (m_algo == Options::ALGO_CRYPTONIGHT_LITE) {
         return createLite(threadId);
     }
@@ -67,7 +67,7 @@ void *Mem::calloc(size_t num, size_t size)
 }
 
 
-#ifndef XMRIG_NO_AEON
+#ifndef ZRMIG_NO_AEON
 cryptonight_ctx *Mem::createLite(int threadId) {
     cryptonight_ctx *ctx;
 

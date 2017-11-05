@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(xmrig)
+project(zrmig)
 
 option(WITH_LIBCPUID "Use Libcpuid" ON)
 option(WITH_AEON     "CryptoNight-Lite support" ON)
@@ -91,7 +91,7 @@ set(SOURCES
     src/workers/SingleWorker.cpp
     src/workers/Worker.cpp
     src/workers/Workers.cpp
-    src/xmrig.cpp
+    src/zrmig.cpp
    )
 
 set(SOURCES_CRYPTO
@@ -203,7 +203,7 @@ if (WITH_LIBCPUID)
     set(CPUID_LIB cpuid)
     set(SOURCES_CPUID src/Cpu.cpp)
 else()
-    add_definitions(/DXMRIG_NO_LIBCPUID)
+    add_definitions(/DZRMIG_NO_LIBCPUID)
     set(SOURCES_CPUID src/Cpu_stub.cpp)
 endif()
 
@@ -214,7 +214,7 @@ if (HAVE_SYSLOG_H)
 endif()
 
 if (NOT WITH_AEON)
-    add_definitions(/DXMRIG_NO_AEON)
+    add_definitions(/DZRMIG_NO_AEON)
 endif()
 
 if (WITH_HTTPD)
@@ -227,13 +227,13 @@ if (WITH_HTTPD)
         message(FATAL_ERROR "microhttpd NOT found: use `-DWITH_HTTPD=OFF` to build without http deamon support")
     endif()
 else()
-    add_definitions(/DXMRIG_NO_HTTPD)
-    add_definitions(/DXMRIG_NO_API)
+    add_definitions(/DZRMIG_NO_HTTPD)
+    add_definitions(/DZRMIG_NO_API)
 endif()
 
 include_directories(src)
 include_directories(src/3rdparty)
 include_directories(${UV_INCLUDE_DIR})
 
-add_executable(xmrig ${HEADERS} ${SOURCES} ${SOURCES_OS} ${SOURCES_CPUID} ${HEADERS_CRYPTO} ${SOURCES_CRYPTO} ${SOURCES_SYSLOG} ${HTTPD_SOURCES})
-target_link_libraries(xmrig ${UV_LIBRARIES} ${MHD_LIBRARY} ${EXTRA_LIBS} ${CPUID_LIB})
+add_executable(zrmig ${HEADERS} ${SOURCES} ${SOURCES_OS} ${SOURCES_CPUID} ${HEADERS_CRYPTO} ${SOURCES_CRYPTO} ${SOURCES_SYSLOG} ${HTTPD_SOURCES})
+target_link_libraries(zrmig ${UV_LIBRARIES} ${MHD_LIBRARY} ${EXTRA_LIBS} ${CPUID_LIB})

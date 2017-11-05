@@ -1,10 +1,10 @@
-/* XMRig
+/* ZRMig
  * Copyright 2010      Jeff Garzik <jgarzik@pobox.com>
  * Copyright 2012-2014 pooler      <pooler@litecoinpool.org>
  * Copyright 2014      Lucas Jones <https://github.com/lucasjones>
  * Copyright 2014-2016 Wolf9466    <https://github.com/OhGodAPet>
  * Copyright 2016      Jay D Dee   <jayddee246@gmail.com>
- * Copyright 2016-2017 XMRig       <support@xmrig.com>
+ * Copyright 2016-2017 ZRMig       <support@zrmig.com>
  *
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -63,7 +63,7 @@ private:
     static size_t m_offset;
     VAR_ALIGN(16, static uint8_t *m_memory);
 
-#   ifndef XMRIG_NO_AEON
+#   ifndef ZRMIG_NO_AEON
     static cryptonight_ctx *createLite(int threadId);
 #   endif
 };

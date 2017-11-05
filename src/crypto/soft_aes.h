@@ -22,7 +22,7 @@
   */
 
 /*
- * Parts of this file are originally copyright (c) 2014-2017, The Monero Project
+ * Parts of this file are originally copyright (c) 2014-2017, The Zerium Project
  */
 #pragma once
 

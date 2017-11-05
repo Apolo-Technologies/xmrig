@@ -1,10 +1,10 @@
-/* XMRig
+/* ZRMig
  * Copyright 2010      Jeff Garzik <jgarzik@pobox.com>
  * Copyright 2012-2014 pooler      <pooler@litecoinpool.org>
  * Copyright 2014      Lucas Jones <https://github.com/lucasjones>
  * Copyright 2014-2016 Wolf9466    <https://github.com/OhGodAPet>
  * Copyright 2016      Jay D Dee   <jayddee246@gmail.com>
- * Copyright 2016-2017 XMRig       <support@xmrig.com>
+ * Copyright 2016-2017 ZRMig       <support@zrmig.com>
  *
  *
  *   This program is free software: you can redistribute it and/or modify
@@ -50,7 +50,7 @@ static void print_versions()
 #   endif
 
 
-    Log::i()->text(Options::i()->colors() ? "\x1B[01;32m * \x1B[01;37mVERSIONS:     \x1B[01;36mXMRig/%s\x1B[01;37m libuv/%s%s" : " * VERSIONS:     XMRig/%s libuv/%s%s",
+    Log::i()->text(Options::i()->colors() ? "\x1B[01;32m * \x1B[01;37mVERSIONS:     \x1B[01;36mZRMig/%s\x1B[01;37m libuv/%s%s" : " * VERSIONS:     ZRMig/%s libuv/%s%s",
                    APP_VERSION, uv_version_string(), buf);
 }
 
@@ -75,13 +75,13 @@ static void print_cpu()
                        Cpu::sockets(),
                        Cpu::isX64() ? "\x1B[01;32m" : "\x1B[01;31m-",
                        Cpu::hasAES() ? "\x1B[01;32m" : "\x1B[01;31m-");
-#       ifndef XMRIG_NO_LIBCPUID
+#       ifndef ZRMIG_NO_LIBCPUID
         Log::i()->text("\x1B[01;32m * \x1B[01;37mCPU L2/L3:    %.1f MB/%.1f MB", Cpu::l2() / 1024.0, Cpu::l3() / 1024.0);
 #       endif
     }
     else {
         Log::i()->text(" * CPU:          %s (%d) %sx64 %sAES-NI", Cpu::brand(), Cpu::sockets(), Cpu::isX64() ? "" : "-", Cpu::hasAES() ? "" : "-");
-#       ifndef XMRIG_NO_LIBCPUID
+#       ifndef ZRMIG_NO_LIBCPUID
         Log::i()->text(" * CPU L2/L3:    %.1f MB/%.1f MB", Cpu::l2() / 1024.0, Cpu::l3() / 1024.0);
 #       endif
     }
@@ -127,7 +127,7 @@ static void print_pools()
 }
 
 
-#ifndef XMRIG_NO_API
+#ifndef ZRMIG_NO_API
 static void print_api()
 {
     if (Options::i()->apiPort() == 0) {
@@ -158,7 +158,7 @@ void Summary::print()
     print_threads();
     print_pools();
 
-#   ifndef XMRIG_NO_API
+#   ifndef ZRMIG_NO_API
     print_api();
 #   endif
 

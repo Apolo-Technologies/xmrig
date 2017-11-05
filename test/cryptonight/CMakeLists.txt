@@ -23,6 +23,6 @@ include_directories(../..)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -fno-strict-aliasing")
 set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O2")
 add_definitions(-DBUILD_TEST)
-add_definitions(-DXMRIG_NO_AEON)
+add_definitions(-DZRMIG_NO_AEON)
 
 add_test(cryptonight_test cryptonight_app)
